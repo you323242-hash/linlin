@@ -68,7 +68,7 @@ npm run dev:check   # 本地依赖/数据/服务状态
 
 ## 如何评审本项目
 
-[附录：项目构思、个人参与与制作复盘](docs/INTERVIEW_PROJECT_APPENDIX.md)说明想法如何逐步落地、本人实际操作与反馈、订单流程和具体取舍，以及纠正AI排查方向的一次经历；坦诚说明代码基础、AI协作边界与持续学习方向。
+[附录：项目构思、个人参与与制作复盘](docs/INTERVIEW_PROJECT_APPENDIX.md)说明想法如何逐步落地、本人实际操作与反馈、订单流程和具体取舍，以及组织Codex实现与Claude专项复核的过程；坦诚说明代码基础、AI协作边界与持续学习方向。
 
 先看[迭代记录](docs/ITERATION_HISTORY.md)，再按[架构阅读地图](docs/ARCHITECTURE.md)定位代码；具体可复现步骤和证据限制见[验证记录](docs/VERIFICATION.md)。早期迭代来自当时保留的阶段报告，不冒充Git提交历史；公开基线后的改动使用真实提交记录。
 
