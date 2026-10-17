@@ -23,12 +23,13 @@ npm ci
 npm start
 ```
 
-打开 **http://127.0.0.1:4174/teams.html**。普通启动不需要外部账号或环境密钥；首次启动会在被 Git 忽略的 `.local/` 创建本地数据库和认证密钥。可以在登录框选择游客体验，也可注册合成测试账号。
+打开[本机免费组队页面](http://127.0.0.1:4174/teams.html)。普通启动不需要外部账号或环境密钥；首次启动会在被 Git 忽略的 `.local/` 创建本地数据库和认证密钥。可以在登录框选择游客体验，也可注册合成测试账号。
 
 如需本地预置服务者等测试角色，可执行 `npm run seed:local`。该命令会输出**公开的合成测试账号资料**，不得用于部署；不要在这些账号中录入真实个人信息。
 
 ```bash
 npm run check       # JavaScript 语法
+npm run format:check # 两个核心模块的格式规范
 npm test            # 独立测试库及页面冒烟
 npm run dev:check   # 本地依赖/数据/服务状态
 ```
@@ -64,3 +65,11 @@ npm run dev:check   # 本地依赖/数据/服务状态
 - 仓库未附开源授权许可证；公开展示不代表授予额外使用许可。第三方依赖遵循各自许可证；素材说明见 [dist/assets/original/README.md](dist/assets/original/README.md)。
 
 更多：[架构](docs/ARCHITECTURE.md) · [开发与维护](docs/DEVELOPMENT.md) · [项目状态](docs/PROJECT_STATUS.md) · [公测门禁](docs/PUBLIC_BETA_GATES.md)
+
+## 如何评审本项目
+
+先看[迭代记录](docs/ITERATION_HISTORY.md)，再按[架构阅读地图](docs/ARCHITECTURE.md)定位代码；具体可复现步骤和证据限制见[验证记录](docs/VERIFICATION.md)。早期迭代来自当时保留的阶段报告，不冒充Git提交历史；公开基线后的改动使用真实提交记录。
+
+当前主体是JavaScript ES Modules。已有Provider接口声明，但**尚未实现项目级TypeScript静态检查**；类型声明不等于实现已被检查。优先保留Node直接运行和成熟流程，后续按实际维护需要在配置、接口和适配器边界渐进补类型，不进行仅为展示的全量迁移。
+
+账号密码、哈希、会话、权限及SQLite持久化由实际Better Auth和服务端代码实现；未接真实渠道的是外部邮件/短信投递、QQ/微信登录与资金服务。正式身份核实和隐私执行也未完成，不能将现有账号系统等同于已经满足实名或公测要求。
