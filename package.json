@@ -10,6 +10,8 @@
     "start": "node scripts/dev.mjs start",
     "dev:check": "node scripts/dev.mjs check",
     "check": "node scripts/check-source.mjs",
+    "format:core": "prettier --write server/index.mjs server/market.mjs",
+    "format:check": "prettier --check server/index.mjs server/market.mjs",
     "seed:local": "node scripts/dev.mjs seed",
     "test": "node scripts/dev.mjs test",
     "test:auth": "node --test tests/auth-integration.test.mjs"
@@ -17,5 +19,13 @@
   "dependencies": {
     "better-auth": "1.7.6"
   },
-  "type": "module"
+  "type": "module",
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 100,
+    "trailingComma": "es5"
+  },
+  "devDependencies": {
+    "prettier": "3.9.10"
+  }
 }

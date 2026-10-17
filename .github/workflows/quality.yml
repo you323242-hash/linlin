@@ -27,6 +27,7 @@ jobs:
           package-manager-cache: false
       - run: npm ci
       - run: npm run check
+      - run: npm run format:check
       - run: npm test
       - run: npm audit --audit-level=low
       # Authored dist is source: never run the retired frontend build.
