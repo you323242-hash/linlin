@@ -1,0 +1,103 @@
+/* Native visual vocabulary inspired by Profile Card, Spotlight Card, Glare Hover, Pill Nav and Animated Content. */
+:is(.team-page,.paid-page) .main-nav a{position:relative;isolation:isolate;transition:color .2s}
+:is(.team-page,.paid-page) .main-nav a:before{content:"";position:absolute;inset:auto -12px;top:calc(50% - 18px);height:36px;background:#eaf2ff;border-radius:24px;opacity:0;transform:scale(.94);transition:opacity .2s,transform .2s;z-index:-1}
+:is(.team-page,.paid-page) .main-nav a:hover:before,:is(.team-page,.paid-page) .main-nav a:focus-visible:before{opacity:1;transform:scale(1)}
+:is(.team-page,.paid-page) .main-nav .nav-active:before{opacity:.7;transform:scale(1)}
+:is(.team-page,.paid-page) .ui-surface,.paid-page .price-card{position:relative;isolation:isolate}
+:is(.team-page,.paid-page) .ui-surface:after,.paid-page .price-card:after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(360px circle at var(--glow-x,75%) var(--glow-y,10%),#c7dcff66,transparent 75%);opacity:0;pointer-events:none;z-index:-1;transition:opacity .25s}
+.team-page .team-card:before{display:none}
+.person-mini{width:100%;display:flex;align-items:center;gap:10px;text-align:left;padding:15px 0 0;margin-top:22px;border:0;border-top:1px solid #e7edf7;background:transparent;cursor:pointer;color:#263549}
+.person-mini-copy{display:grid;gap:3px;min-width:0}
+.person-mini strong{font-size:13px;font-weight:650;color:#172033;line-height:1.5}
+.person-mini small{font-size:12px;line-height:1.5;color:#526277}
+.person-avatar{display:grid;place-items:center;flex-shrink:0;width:38px;height:38px;border:1px solid #cfddf4;border-radius:12px;background:linear-gradient(140deg,#f7faff,#dfebff);font:600 15px/1 "Microsoft YaHei","PingFang SC",sans-serif;color:#426ca7;box-shadow:inset 0 1px 1px #fff}
+.person-avatar-blue{background:linear-gradient(145deg,#f1f6ff,#dfebff);color:#345c96;border-color:#cbdaf1}
+.person-avatar-teal{background:linear-gradient(145deg,#f0faf8,#def0eb);color:#28665b;border-color:#c5dfd6}
+.person-avatar-violet{background:linear-gradient(145deg,#f8f4ff,#eae2f5);color:#65508b;border-color:#dcd1eb}
+.person-avatar-sand{background:linear-gradient(145deg,#fff9f0,#f3e8d6);color:#80603c;border-color:#e5d8c4}
+.person-mini-link{margin-left:auto;flex-shrink:0;color:#3466ae;font-size:12px;opacity:.85}
+.person-mini-link span{display:inline-block;transition:transform .2s}
+.person-mini:hover .person-mini-link span{transform:translate(2px,-2px)}
+.people-section{margin:28px 0 30px}
+.people-section-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:17px}
+.paid-page .people-section-head h2{margin:0;font-size:20px;font-weight:650;color:#172033;letter-spacing:0;line-height:1.5}
+.people-section-head p{margin:0;font-size:12px;line-height:1.8;color:#526277}
+.people-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.person-card{display:flex;flex-direction:column;gap:18px;min-width:0;border:1px solid #cfdef2;border-radius:14px;padding:22px;text-align:left;background:linear-gradient(145deg,#fff,#f8faff);font:inherit;cursor:pointer;color:#263549;box-shadow:0 4px 18px #244a7908;overflow:hidden;transition:transform .28s,border-color .25s,box-shadow .25s;transform-origin:50% 50%}
+.person-card-head{display:flex;align-items:center;gap:12px;width:100%;min-width:0}
+.person-card-head>span:nth-child(2){display:grid;gap:4px;min-width:0}
+.person-card strong{font-size:17px;line-height:1.5;font-weight:650;color:#172033}
+.person-card small{font-size:12px;line-height:1.6;color:#526277}
+.person-card .person-avatar{width:44px;height:44px;border-radius:14px;font-size:18px}
+.person-card-mark{margin-left:auto;font-size:18px;color:#426ba5;transition:transform .2s}
+.person-card-description{font-size:13px;line-height:1.85;color:#46566c;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:3.7em}
+.person-card-foot{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #e4ecf8;padding-top:14px;font-size:12px;line-height:1.7;color:#526277;margin-top:auto;width:100%}
+.person-card-foot>span:last-child{white-space:nowrap;color:#3466ae}
+.person-card-tags{display:flex;gap:6px;flex-wrap:wrap;min-width:0}
+.person-card-tags>span{padding:3px 8px;border:1px solid #dce6f3;border-radius:6px;background:#f1f6fd;color:#3c5676;font-size:12px;line-height:1.5}
+.person-mini:focus-visible,.person-card:focus-visible{outline:3px solid #93b4e7;outline-offset:4px}
+.person-mini strong,.person-card-head strong{overflow-wrap:anywhere}
+.person-sheet{overflow:hidden;border:1px solid #d2e0f4;border-radius:16px;background:#fff;color:#263549}
+.person-sheet-cover{height:82px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 80% -30%,#c5dbff,transparent 70%),linear-gradient(120deg,#e8f1ff,#f5f8fe);border-bottom:1px solid #dae6f6}
+.person-sheet-cover:before{content:"";position:absolute;width:220px;height:220px;right:-30px;top:-130px;border:1px solid #adc4e666;border-radius:50%;box-shadow:0 0 0 24px #c5d6ef30,0 0 0 48px #c5d6ef20;pointer-events:none}
+.person-sheet-content{padding:0 25px 23px}
+.person-avatar-large{width:66px;height:66px;border-radius:20px;font-size:26px;margin-top:-33px;position:relative;border:4px solid #fff;box-shadow:0 5px 16px #244a7915}
+:is(.team-page,.paid-page) .person-sheet-heading{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 14px;margin:16px 0 12px}
+:is(.team-page,.paid-page) .person-sheet-heading h3{font:650 24px/1.4 var(--font,"Microsoft YaHei",sans-serif);margin:0;color:#172033;letter-spacing:0}
+.person-sheet-heading>span{font-size:12px;color:#526277}
+:is(.team-page,.paid-page) .person-intro{font-size:14px;line-height:1.85;margin:0 0 16px;color:#46566c}
+.person-preferences{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.person-preferences>span{padding:4px 9px;border-radius:6px;border:1px solid #dce6f5;background:#f6f9ff;color:#42618d;font-size:12px;line-height:1.6}
+.person-facts{margin:0;padding-top:16px;border-top:1px solid #e3ebf7;display:grid;gap:13px}
+.person-facts>div{display:grid;grid-template-columns:74px minmax(0,1fr);gap:14px;font-size:13px;line-height:1.8}
+.person-facts dt{color:#526277}
+.person-facts dd{margin:0;color:#263549;overflow-wrap:anywhere}
+:is(.team-page,.paid-page) .person-disclosure{margin:20px 0 0;padding-top:15px;border-top:1px solid #e3ebf7;font-size:12px;line-height:1.85;color:#526277}
+.paid-page #preview-dialog{border-radius:16px}
+.paid-page .price-card{transition:border-color .25s,box-shadow .25s}
+.paid-page .price-card:hover{box-shadow:0 10px 28px #244a7918}
+.paid-page .card-art{transition:transform .7s ease-out}
+.paid-page .price strong{text-shadow:none}
+.paid-page .select-button svg,.paid-page .join-button svg{transition:transform .2s}
+.paid-page :is(.select-button,.join-button):hover svg{transform:translateX(4px)}
+.paid-page .notice-card{transition:border-color .2s,box-shadow .2s}
+.paid-page .notice-card:hover{border-color:#97b9e8;box-shadow:0 7px 20px #244a7910}
+.paid-page #preview-dialog[open],.paid-page #document-dialog[open]{animation:ui-dialog-in .22s ease-out}
+@keyframes ui-enter{from{opacity:.65;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes ui-dialog-in{from{opacity:0;transform:translateY(8px) scale(.99)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes ui-sheen{from{transform:translateX(-130%) skewX(-20deg)}to{transform:translateX(240%) skewX(-20deg)}}
+@media(prefers-reduced-motion:no-preference){
+  .ui-entered{animation:ui-enter .5s ease-out backwards}
+  .paid-page .price-card{animation:ui-enter .5s ease-out backwards}
+  .paid-page .price-card:nth-child(2){animation-delay:.08s}
+  .people-section.ui-entered .person-card:nth-child(2){animation:ui-enter .45s .07s ease-out backwards}
+  .people-section.ui-entered .person-card:nth-child(3){animation:ui-enter .45s .14s ease-out backwards}
+}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  :is(.team-page,.paid-page) .ui-surface:is(:hover,:focus-within):after,.paid-page .price-card:is(:hover,:focus-within):after{opacity:1}
+  .person-card:hover{transform:perspective(900px) translateY(-3px) rotateX(var(--lean-x,0deg)) rotateY(var(--lean-y,0deg));border-color:#98b8e8;box-shadow:0 12px 28px #244a7915}
+  .person-card:hover .person-card-mark{transform:translate(2px,-2px)}
+  .paid-page .price-card:hover .card-art{transform:scale(1.025)}
+  .person-sheet-cover{position:relative;overflow:hidden}
+  .person-sheet-cover:after{content:"";position:absolute;inset:0;width:45%;background:linear-gradient(90deg,transparent,#fff9,transparent);animation:ui-sheen 1.1s ease-out both}
+}
+@media(max-width:1000px){.people-grid{gap:14px}.person-card{padding:18px}.person-card-foot{flex-wrap:wrap;gap:6px}}
+@media(max-width:620px){
+  :is(.team-page,.paid-page) .main-nav a:before{inset:auto -8px;top:calc(50% - 16px);height:32px;border-radius:9px}
+  .people-section-head{align-items:flex-start;flex-direction:column;gap:5px;margin-bottom:14px}
+  .people-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:90%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:thin;scrollbar-color:#c9d9ef transparent}
+  .person-card{scroll-snap-align:start}
+  .person-card{padding:20px;gap:14px}
+  .person-card-description{min-height:0}
+  .person-card-foot{flex-wrap:nowrap}
+  .person-sheet-content{padding:0 20px 20px}
+  .person-mini small{font-size:11px}
+  .person-mini-link{font-size:11px}
+  .person-sheet-heading>span{flex-basis:100%}
+  .person-facts>div{grid-template-columns:64px minmax(0,1fr);gap:10px}
+}
+@media(prefers-reduced-motion:reduce){
+  :is(.team-page,.paid-page) :is(.ui-entered,.person-card,.person-card-mark,.card-art,.main-nav a,.main-nav a:before,.person-mini-link span,.select-button svg,.join-button svg,#preview-dialog,#document-dialog){animation:none!important;transition:none!important;transform:none!important}
+  .paid-page .price-card{animation:none!important}
+  :is(.team-page,.paid-page) .ui-surface:after,.paid-page .price-card:after,.person-sheet-cover:after{display:none!important}
+}

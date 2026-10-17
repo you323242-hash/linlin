@@ -1,0 +1,339 @@
+/* White base with pale blue panels and blue-grey borders. Shared across current pages. */
+:is(.team-page,.paid-page,.business-page,.rules-page){
+  --platform-text:#172033;--platform-muted:#263549;--platform-border:#cedcee;
+  --platform-surface:#ffffff;--platform-panel:#eef4fc;--platform-accent:#2f6bd9;
+  --font:"Microsoft YaHei","PingFang SC",Arial,sans-serif;
+  --bg:#ffffff;--text:#172033;--muted:#263549;--border:#cedcee;--blue:#2f6bd9;
+  color-scheme:light;background:var(--bg);color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC",Arial,sans-serif;font-size:14px;line-height:1.75;
+}
+:is(.team-page,.paid-page,.business-page,.rules-page) p{text-wrap:pretty}
+:is(.team-page,.paid-page,.business-page,.rules-page) .rail{width:68px;background:#edf3fb;border-color:var(--platform-border)}
+:is(.team-page,.paid-page,.business-page,.rules-page) .site-wrap{margin-left:68px}
+:is(.team-page,.paid-page,.business-page,.rules-page) .rail-mark svg{stroke:#6689bf}
+:is(.team-page,.paid-page,.business-page,.rules-page) .rail-button{color:#46566c}
+:is(.team-page,.paid-page,.business-page,.rules-page) .rail-button:hover,:is(.team-page,.paid-page,.business-page,.rules-page) .rail-button.active{background:#dce9fc;color:#2f6bd9}
+:is(.team-page,.paid-page,.business-page,.rules-page) .vertical-label{color:#46566c}
+:is(.team-page,.paid-page,.business-page,.rules-page) .header{height:88px;min-height:88px;padding:0 36px;gap:28px;background:#ffffff;border-color:var(--platform-border)}
+:is(.team-page,.paid-page,.business-page,.rules-page) .brand strong{font-size:21px;font-weight:650;color:#172033}
+:is(.team-page,.paid-page,.business-page,.rules-page) .brand strong span{color:#334155}
+:is(.team-page,.paid-page,.business-page,.rules-page) .brand-sub{font-size:9px;letter-spacing:2px;color:#46566c}
+:is(.team-page,.paid-page,.business-page,.rules-page) .main-nav{font-size:14px;gap:28px;margin-left:24px;color:#263549}
+:is(.team-page,.paid-page,.business-page,.rules-page) .main-nav a{white-space:nowrap}
+:is(.team-page,.paid-page,.business-page,.rules-page) .main-nav a:hover,:is(.team-page,.paid-page,.business-page,.rules-page) .main-nav .nav-active{color:#2458b8}
+:is(.team-page,.paid-page,.business-page,.rules-page) .main-nav .nav-active:after{background:#2f6bd9;height:2px}
+:is(.team-page,.paid-page,.business-page,.rules-page) .header-actions{display:flex}
+:is(.team-page,.paid-page,.business-page,.rules-page) .preview-label{display:none}
+:is(.team-page,.paid-page,.business-page,.rules-page) .account-button{background:#f0f6ff;border-color:#c8d9f0;color:#334155;border-radius:6px;font-size:13px}
+:is(.team-page,.paid-page,.business-page,.rules-page) :focus-visible{outline:2px solid #2f6bd9;outline-offset:4px}
+:is(.team-page,.paid-page,.business-page,.rules-page) input,:is(.team-page,.paid-page,.business-page,.rules-page) select,:is(.team-page,.paid-page,.business-page,.rules-page) textarea{background:#ffffff;border-color:#e2e8f0;color:#263549;font-size:14px}
+:is(.team-page,.paid-page,.business-page,.rules-page) input::placeholder,:is(.team-page,.paid-page,.business-page,.rules-page) textarea::placeholder{color:#46566c}
+:is(.team-page,.paid-page,.business-page,.rules-page) main{padding:30px 36px 0;max-width:1450px;margin:auto}
+
+/* Free team lobby: short titles, one readable metadata line, tags in details. */
+.team-page .team-hero{min-height:260px;background:#f1f5f9;border-color:#e2e8f0;border-radius:10px}
+.team-page .team-hero>img{opacity:1}
+.team-page .team-hero:after{background:linear-gradient(90deg,#fffffffa,#ffffffbf 36%,#ffffff00 68%)}
+.team-page .team-hero-content{padding:30px 32px}
+.team-page .team-hero h1{font-size:30px;line-height:1.4;font-weight:650;color:#172033;margin:10px 0 12px;letter-spacing:0}
+.team-page .team-hero-content>p:last-of-type{font-size:15px;line-height:1.75;color:#263549}
+.team-page .team-platform{font-size:12px;color:#46566c}
+.team-page .team-eyebrow{display:none}
+.team-page .team-actions{margin-top:21px}
+.team-page .team-preview-note{font-size:12px;color:#46566c;margin:13px 0 28px}
+.team-page .team-section-head h2{font-size:20px;line-height:1.4;font-weight:650;color:#172033}
+.team-page .team-text{font-size:13px;color:#285fac}
+.team-page .team-text:hover{color:#2458b8}
+.team-page label{font-size:13px;color:#263549}
+.team-page .team-filters{grid-template-columns:repeat(4,minmax(0,1fr));background:#f1f6fd;border-color:var(--platform-border);padding:18px;gap:16px}
+.team-page .team-list-meta{font-size:12px;color:#46566c}
+.team-page .team-card{background:var(--platform-surface);border-color:var(--platform-border);border-radius:9px;box-shadow:0 3px 12px #0f172a0a}
+.team-page .team-card:hover{border-color:#8eb2e6}
+.team-page .team-card-top{padding:19px 21px 0}
+.team-page .team-mode{font-size:12px;color:#46566c}
+.team-page .team-card-body{padding:14px 21px 20px}
+.team-page .team-card h3{font-size:18px;line-height:1.6;font-weight:650;color:#172033;margin-bottom:12px}
+.team-page .team-card .team-mini-label,.team-page .team-card .team-tags{display:none}
+.team-page .team-mini-label{color:#46566c;border-color:#e2e8f0}
+.team-page .team-meta{font-size:13px;color:#263549;gap:8px 16px}
+.team-page .team-tags span{background:#f1f5f9;border-color:#e2e8f0;color:#46566c;font-size:12px}
+.team-page .team-person{border-color:#e2e8f0;margin-top:20px;padding-top:15px}
+.team-page .team-person strong,.team-page .team-owned strong{font-size:13px;color:#263549}
+.team-page .team-person small{font-size:12px;color:#46566c}
+.team-page .team-avatar{background:#e6effc;color:#375782}
+.team-page .team-button{background:#f8fafc;border-color:#e2e8f0;color:#334155;font-size:14px;font-weight:500;padding:11px 18px;border-radius:6px}
+.team-page .team-button:hover{background:#f1f5f9;border-color:#cbd5e1}
+.team-page .team-button.primary{background:#2f6bd9;border-color:#2f6bd9;color:#fff;box-shadow:none}
+.team-page .team-button.primary:hover{background:#2458b8}
+.team-page .team-card-foot .team-button{min-height:40px;background:#edf4ff;border-color:#c9dcf5;color:#285fac;font-size:13px}
+.team-page .team-card-foot .team-button:hover{background:#e0edff}
+.team-page .team-card-foot{padding:0 21px 20px}
+.team-page .team-side-panel{background:var(--platform-panel);border-color:var(--platform-border);padding:22px}
+.team-page .team-side-panel h2{font-size:20px}
+.team-page .team-side-panel p,.team-page .team-empty{font-size:15px;line-height:1.8;color:#263549}
+.team-page .team-empty>span{color:#46566c}
+.team-page .team-scenario,.team-page .team-owned,.team-page .team-reputation-metrics{border-color:#e2e8f0}
+.team-page .team-scenario summary{font-size:12px;color:#46566c}
+.team-page .team-reputation-badge{background:#e8eee6;color:#385a42}
+.team-page .team-reputation-badge.new{background:#e8edf1;color:#3c586f}
+.team-page .team-reputation-badge.restricted{background:#f1e5d8;color:#74441d}
+.team-page .team-reputation-metrics strong{color:#263549}
+.team-page .team-reputation-metrics small{color:#46566c}
+.team-page .team-paid-entry{background:linear-gradient(110deg,#eaf2ff,#f6faff);border-color:var(--platform-border);padding:24px;margin-top:28px}
+.team-page .team-paid-entry h2{font-size:20px;color:#172033}
+.team-page .team-paid-entry p,.team-page .team-paid-prices>span,.team-page .team-paid-prices small{font-size:13px;color:#46566c}
+.team-page .team-paid-prices strong{font-size:27px;color:#285fac}
+.team-page .team-footer{border-color:var(--platform-border);font-size:12px;color:#46566c}
+.team-page .team-footer strong,.team-page .team-footer a,.team-page .team-footer button{color:#46566c}
+
+/* White dialogs; preserve legal reading-size controls. */
+:is(.team-page,.paid-page,.business-page,.rules-page) #preview-dialog,.team-page .team-dialog{background:#ffffff;color:#263549;border-color:#e2e8f0;border-radius:10px;box-shadow:0 20px 70px #0f172a26}
+:is(.team-page,.paid-page,.business-page,.rules-page) #dialog-content{color:#263549}
+:is(.team-page,.paid-page,.business-page,.rules-page) dialog::backdrop{background:#0f172a58;backdrop-filter:blur(4px)}
+:is(.team-page,.paid-page,.business-page,.rules-page) #dialog-title,.team-page .team-dialog h2{font-size:24px;line-height:1.5;font-weight:650;color:#172033}
+:is(.team-page,.paid-page,.business-page,.rules-page) #dialog-content p,:is(.team-page,.paid-page,.business-page,.rules-page) #dialog-content li,.team-page .team-dialog p,.team-page .team-dialog li{font-size:14px;line-height:1.9;color:#263549}
+.team-page .team-dialog h3{font-size:16px;color:#263549;margin:24px 0 10px}
+.team-page .team-form-note{color:#46566c!important}
+.team-page .team-divider,.team-page .team-detail-facts{border-color:#e2e8f0}
+.team-page .team-detail-facts dt{font-size:12px;color:#46566c}
+.team-page .team-detail-facts dd{font-size:14px;color:#263549}
+.team-page .team-notice,.team-page .team-form-extra,.team-page .team-chat-log{background:#f8fafc;border-color:#e2e8f0}
+.team-page .team-form-extra summary,.team-page .team-chat-log strong,.team-page .team-status{color:#285fac}
+.team-page .team-chat-log small{color:#46566c}
+.team-page .team-icon-button,:is(.team-page,.paid-page,.business-page,.rules-page) .close-button{background:#f8fafc;border-color:#e2e8f0;color:#46566c}
+.team-page .team-toast{background:#ffffff;border-color:#e2e8f0;color:#46566c}
+:is(.team-page,.paid-page,.business-page,.rules-page) .document-dialog{background:#ffffff;border-color:#e2e8f0;color:#263549}
+:is(.team-page,.paid-page,.business-page,.rules-page) .document-header,:is(.team-page,.paid-page,.business-page,.rules-page) .document-footer{background:#eef4fc;border-color:#cedcee;color:#263549}
+:is(.team-page,.paid-page,.business-page,.rules-page) .document-header h2{font-size:23px;color:#172033}
+:is(.team-page,.paid-page,.business-page,.rules-page) .dialog-top .eyebrow,:is(.team-page,.paid-page,.business-page,.rules-page) .document-header .eyebrow{visibility:hidden}
+:is(.team-page,.paid-page,.business-page,.rules-page) .document-body,:is(.team-page,.paid-page,.business-page,.rules-page) .legal-content{background:#ffffff;color:#263549}
+:is(.team-page,.paid-page,.business-page,.rules-page) .legal-content h2,:is(.team-page,.paid-page,.business-page,.rules-page) .legal-content h3,:is(.team-page,.paid-page,.business-page,.rules-page) .legal-content h4,:is(.team-page,.paid-page,.business-page,.rules-page) .legal-content strong,:is(.team-page,.paid-page,.business-page,.rules-page) .legal-content dt{color:#172033}
+:is(.team-page,.paid-page,.business-page,.rules-page) .legal-meta{color:#46566c}
+:is(.team-page,.paid-page,.business-page,.rules-page) .rule-summary,:is(.team-page,.paid-page,.business-page,.rules-page) .legal-callout,:is(.team-page,.paid-page,.business-page,.rules-page) .document-toc{background:#f8fafc;color:#263549;border-color:#e2e8f0}
+:is(.team-page,.paid-page,.business-page,.rules-page) .rule-summary>strong,:is(.team-page,.paid-page,.business-page,.rules-page) .rule-summary>p,:is(.team-page,.paid-page,.business-page,.rules-page) .document-toc summary{color:#263549}
+:is(.team-page,.paid-page,.business-page,.rules-page) .legal-fields,:is(.team-page,.paid-page,.business-page,.rules-page) .legal-fields dt,:is(.team-page,.paid-page,.business-page,.rules-page) .legal-fields dd{border-color:#e2e8f0;color:#263549}
+:is(.team-page,.paid-page,.business-page,.rules-page) .legal-content a,:is(.team-page,.paid-page,.business-page,.rules-page) .document-footer a{color:#2f6bd9}
+:is(.team-page,.paid-page,.business-page,.rules-page) .dialog-confirm,:is(.team-page,.paid-page,.business-page,.rules-page) .document-dismiss{background:#f1f5f9;border-color:#e2e8f0;color:#263549}
+:is(.team-page,.paid-page,.business-page,.rules-page) .auth-form label,:is(.team-page,.paid-page,.business-page,.rules-page) .auth-tabs button{color:#263549;border-color:#e2e8f0}
+:is(.team-page,.paid-page,.business-page,.rules-page) .auth-tabs button[aria-pressed="true"]{background:#e8edf1;border-color:#d2dde5;color:#285fac}
+:is(.team-page,.paid-page,.business-page,.rules-page) .registration-fields label{color:#263549}
+:is(.team-page,.paid-page,.business-page,.rules-page) .login-tabs{background:#f8fafc;border-color:#e2e8f0}
+:is(.team-page,.paid-page,.business-page,.rules-page) .login-tabs button{color:#263549}
+:is(.team-page,.paid-page,.business-page,.rules-page) .login-tabs button[aria-pressed="true"]{background:#2f6bd9;color:#fff}
+:is(.team-page,.paid-page,.business-page,.rules-page) .login-provider-symbol{background:#f8fafc;border-color:#e2e8f0;color:#3c586f}
+:is(.team-page,.paid-page,.business-page,.rules-page) .login-placeholder small{color:#46566c}
+:is(.team-page,.paid-page,.business-page,.rules-page) #dialog-content a{color:#2f6bd9}
+:is(.team-page,.paid-page,.business-page,.rules-page) .auth-profile dt{color:#46566c}
+:is(.team-page,.paid-page,.business-page,.rules-page) .auth-profile dd{color:#263549}
+:is(.team-page,.paid-page,.business-page,.rules-page) .auth-submit{background:#2f6bd9;border-color:#2f6bd9;color:#fff}
+:is(.team-page,.paid-page,.business-page,.rules-page) .auth-message{color:#946d39!important}
+
+/* Paid entry: readable prices and short paragraphs, shared with the lobby. */
+.paid-page .section-heading{margin-bottom:24px;align-items:center}
+.paid-page .heading-main h1{font:600 30px/1.4 var(--font);letter-spacing:0;color:#172033}
+.paid-page .heading-main .eyebrow,.paid-page .card-top{display:none}
+.paid-page .service-meta{font-size:13px;color:#46566c}
+.paid-offer-layout{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:24px;align-items:stretch}
+.paid-page .price-grid{gap:18px}
+.paid-page .price-card{min-height:390px;border:1px solid #bad0ee;border-radius:10px;background:#ffffff;box-shadow:0 3px 12px #0f172a0a;overflow:hidden}
+.paid-page .price-card:hover{transform:none;border-color:#7da5e0}
+.paid-page .card-art{opacity:1;filter:none;object-position:72% top}
+.paid-page .art-shade,.paid-page .topsecret .art-shade{background:linear-gradient(90deg,#fffffffc 0%,#ffffffed 32%,#ffffffb8 52%,#ffffff00 82%),linear-gradient(0deg,#fffffff2,#ffffff00 40%)}
+.paid-page .card-grid,.paid-page .card-corner{display:none}
+.paid-page .card-content{padding:29px 26px;min-height:388px;height:100%}
+.paid-page .mode-heading h2{font:600 23px/1.5 var(--font);letter-spacing:0;color:#172033}
+.paid-page .mode-square{background:#6b95d2;width:4px;height:20px}
+.paid-page .price{margin-top:15px;gap:8px}
+.paid-page .price strong{font-size:88px;letter-spacing:-3px;color:#334155}
+.paid-page .currency{color:#46566c;font-size:25px}
+.paid-page .price-caption{font-size:14px;color:#263549;margin-top:8px}
+.paid-page .card-spacer{height:32px;min-height:24px}
+.paid-page .equipment{font-size:13px;color:#46566c;margin-bottom:18px}
+.paid-page .equipment strong{font-size:14px;color:#263549}
+.paid-page .price-card .select-button{height:46px;border-radius:6px;border-color:#2f6bd9;background:#2f6bd9;color:#fff;font-size:14px;font-weight:500;box-shadow:none}
+.paid-page .price-card .select-button:hover{background:#2458b8}
+.paid-service-side{display:flex;flex-direction:column;padding:24px;border:1px solid var(--platform-border);border-radius:10px;background:var(--platform-panel)}
+.paid-service-side h2{font-size:20px;font-weight:650;margin:0 0 20px;color:#172033}
+.paid-service-side .service-strip{display:grid;grid-template-columns:1fr;gap:14px;padding:0 0 21px;margin:0;border-color:#e2e8f0;font-size:14px;color:#263549}
+.paid-service-side .service-strip>div{white-space:normal}
+.paid-service-side .service-strip svg{width:16px;height:16px;color:#46566c}
+.paid-service-side .service-notice{margin:0;padding:0;border:0;background:none;display:block}
+.paid-service-side .service-notice>svg{display:none}
+.paid-service-side .service-notice p{font-size:15px;line-height:1.8;margin:0;color:#263549}
+.paid-service-side .service-notice small{font-size:13px;line-height:1.85;color:#46566c;display:block;margin-top:12px}
+.paid-side-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:20px}
+.paid-side-links a{font-size:13px;color:#285fac}
+.paid-side-free{margin-top:auto;padding-top:18px;border-top:1px solid #e2e8f0}
+.paid-side-free p{font-size:14px;color:#46566c;margin:0 0 7px}
+.paid-side-free a{font-size:14px;color:#285fac}
+.paid-page .scene-banner{display:none}
+.paid-page .lower-grid{gap:24px;padding:28px 0;grid-template-columns:1fr 1fr}
+.paid-page .guide-section,.paid-page .join-section{background:#f6f9ff;border-color:var(--platform-border);border-radius:9px;padding:27px}
+.paid-page .join-section{position:relative;isolation:isolate;overflow:hidden}
+.paid-page .join-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:80% center;z-index:-2;opacity:1}
+.paid-page .join-section:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#fffffffc,#ffffffe6 35%,#ffffff00 78%);z-index:-1}
+.paid-page .join-intro{max-width:65%}
+.paid-page .join-qualifications{max-width:62%;margin:21px 0}
+.paid-page .join-qualifications p{display:block}
+.paid-page .section-title-row h2{font-size:20px;font-weight:650;line-height:1.4;color:#172033}
+.paid-page .guide-items{gap:22px}
+.paid-page .guide-item{display:grid;grid-template-columns:28px minmax(0,1fr);gap:14px;align-items:start}
+.paid-page .guide-item h3,.paid-page .section-title-row h2,.paid-page .guide-item p,.paid-page .join-section p{letter-spacing:0}
+.paid-page .guide-item h3{font-size:16px;line-height:1.5;font-weight:650;color:#263549;margin-bottom:7px}
+.paid-page .guide-item p,.paid-page .join-section p{font-size:15px;color:#263549;line-height:1.8;margin-top:0}
+.paid-page .step-number{font-size:12px;background:#eaf2ff;color:#456ca7;border-color:#c6d9f3;border-radius:4px}
+.paid-page .section-title-row>a,.paid-page .join-button{font-size:13px;color:#285fac}
+.paid-page .join-button{margin-top:25px}
+.paid-page .notice-links{gap:24px;margin-bottom:28px}
+.paid-page .notice-card{border-radius:9px;padding:23px 26px;background:var(--platform-panel);border-color:var(--platform-border)}
+.paid-page .notice-card svg,.paid-page .section-title-row>svg{color:#6089c4}
+.paid-page .notice-card strong{font-size:19px;color:#172033}
+.paid-page .notice-card small,.paid-page .notice-label{color:#46566c;font-size:12px}
+.paid-page .notice-card>span>span{color:#46566c;font-size:13px}
+.paid-page footer{margin:0 36px;border-color:var(--platform-border);padding:24px 0 28px}
+.paid-page .footer-intro strong{font-size:14px;color:#263549}
+.paid-page .footer-intro span,.paid-page .footer-note{color:#46566c;font-size:12px;line-height:1.8}
+.paid-page .footer-links a,.paid-page .source-button{font-size:12px;color:#46566c}
+
+@media(max-width:1200px){
+  :is(.team-page,.paid-page,.business-page,.rules-page) .header{padding:0 24px;gap:18px}
+  :is(.team-page,.paid-page,.business-page,.rules-page) .main-nav{margin-left:8px;gap:22px}
+  :is(.team-page,.paid-page,.business-page,.rules-page) main{padding-left:24px;padding-right:24px}
+  .paid-offer-layout{grid-template-columns:minmax(0,1fr) 235px;gap:20px}
+  .paid-page .card-content{padding:28px 21px}.paid-page .price strong{font-size:78px}
+  .paid-service-side{padding:21px}.paid-page footer{margin:0 24px}
+}
+@media(max-width:1000px){
+  :is(.team-page,.paid-page,.business-page,.rules-page) .header{height:auto;min-height:102px;flex-wrap:wrap;padding-top:16px;padding-bottom:8px;gap:13px}
+  :is(.team-page,.paid-page,.business-page,.rules-page) .main-nav{order:3;width:100%;margin:0;height:auto;justify-content:flex-start;gap:26px}
+  :is(.team-page,.paid-page,.business-page,.rules-page) .main-nav a{padding-bottom:8px}
+  :is(.team-page,.paid-page,.business-page,.rules-page) .header-actions{margin-left:auto}
+  .paid-offer-layout{grid-template-columns:1fr}
+  .paid-service-side .service-strip{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .paid-page .lower-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:620px){
+  :is(.team-page,.paid-page,.business-page,.rules-page) .rail{display:none}
+  :is(.team-page,.paid-page,.business-page,.rules-page) .site-wrap{margin:0}
+  :is(.team-page,.paid-page,.business-page,.rules-page) .header{padding:20px 18px 0;min-height:115px;gap:0}
+  :is(.team-page,.paid-page,.business-page,.rules-page) .brand strong{font-size:19px}
+  :is(.team-page,.paid-page,.business-page,.rules-page) .header-actions{top:23px;right:18px}
+  :is(.team-page,.paid-page,.business-page,.rules-page) .main-nav{gap:15px;justify-content:space-between;font-size:13px}
+  :is(.team-page,.paid-page,.business-page,.rules-page) main{padding:23px 18px 0}
+  .team-page .team-hero{min-height:240px}.team-page .team-hero-content{padding:24px}
+  .team-page .team-hero h1{font-size:26px;line-height:1.45;max-width:270px}
+  .team-page .team-hero>img{opacity:1}
+  .team-page .team-hero:after{background:linear-gradient(90deg,#fffffffa,#ffffffd1 46%,#ffffff24)}
+  .team-page .team-hero-content>p:last-of-type{font-size:14px;max-width:260px}
+  .team-page .team-button{font-size:13px;padding:10px 14px}
+  .team-page .team-card h3{font-size:17px}.team-page .team-filters{padding:18px;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .team-page .team-dialog h2{font-size:22px}
+  .paid-page .heading-main h1{font-size:26px}.paid-page .service-meta{font-size:11px;gap:8px}
+  .paid-page .price-grid{grid-template-columns:1fr;gap:18px}
+  .paid-page .price-card{min-height:336px}.paid-page .card-content{min-height:335px;padding:24px 23px}
+  .paid-page .mode-heading h2{font-size:23px}.paid-page .price strong{font-size:84px}
+  .paid-page .card-spacer{height:22px;min-height:20px}.paid-service-side{padding:23px}
+  .paid-service-side .service-strip{grid-template-columns:1fr 1fr;font-size:13px}
+  .paid-page .lower-grid{grid-template-columns:1fr;gap:18px;padding:24px 0}
+  .paid-page .guide-section,.paid-page .join-section{padding:24px}
+  .paid-page .join-intro,.paid-page .join-qualifications{max-width:70%}
+  .paid-page .notice-links{gap:15px;margin-bottom:24px}.paid-page .notice-card{padding:21px}
+  .paid-page footer{margin:0 18px}
+}
+
+/* Existing business layouts, using the same readable light palette as the lobby. */
+.business-page{--order-panel:#fff;--order-edge:#cedcee;--order-muted:#46566c;--order-paper:#eef4fc}
+.business-page :is(.workspace-panel,.profile-card,.order-card,.assurance-panel,.detail-included>div,.detail-rules){background:#fff;border-color:#cedcee;color:#263549}
+.business-page :is(.workspace-kicker,.workspace-preview,.profile-card p,.panel-heading>span,.account-section-head>span,.empty-service p,.message-empty,.simple-list p,.provider-controls p,.provider-controls label,.availability-status,.provider-rule-grid p,.booking-note,.booking-demo,.page-kicker,.demo-note,.record-heading>span,.order-card-description,.order-card-note,.order-amount small,.order-card-top,.detail-facts dt,.detail-included p,.detail-rules p,.matching-hint,.order-demand small){color:#46566c;opacity:1}
+.business-page :is(.workspace-top h1,.order-page-top h1){color:#172033;font-size:30px;letter-spacing:0}
+.business-page :is(.panel-heading h2,.account-section-head h2,.availability-panel h2,.detail-included h3,.detail-rules summary,.record-heading h2,.order-mode-title,.simple-list strong,.order-demand strong,.order-demand p){color:#172033}
+.business-page :is(.workspace-panel p,.detail-rules p,.detail-included p){line-height:1.8}
+.business-page :is(.text-link,.mobile-account-tools button,.profile-links a,.profile-links button){color:#2458b8}
+.business-page :is(.profile-divider,.profile-caption,.order-card-top,.order-card-bottom,.order-demand,.detail-facts>div,.detail-rules,.detail-heading-line,.detail-data){border-color:#cedcee}
+.business-page .profile-divider{background:#cedcee}
+.business-page :is(.workspace-button,.order-button){background:#edf4ff;border-color:#bbd1ee;color:#2458b8}
+.business-page :is(.workspace-button,.order-button):hover{background:#e0ecff;border-color:#87ace1}
+.business-page :is(.workspace-button.primary,.workspace-button.light,.order-button.primary,.order-card-actions .order-button.primary){background:#2f6bd9;border-color:#2f6bd9;color:#fff}
+.business-page :is(.workspace-button.primary,.order-button.primary):hover{background:#2458b8}
+.business-page :is(.order-button.danger,.form-error){color:#a52d2d;border-color:#dfb2b2;background:#fff2f2}
+.business-page :is(.identity-switch,.view-toggle){background:#eef4fc;border-color:#cedcee}
+.business-page :is(.identity-switch button,.view-toggle button){color:#46566c}
+.business-page :is(.identity-switch button,.view-toggle button)[aria-pressed=true]{background:#2f6bd9;color:#fff;box-shadow:none}
+.business-page :is(.profile-avatar,.empty-icon,.summary-icon){color:#2458b8;background:#edf4ff;border-color:#cedcee}
+.business-page .availability-panel,.business-page .booking-card{background:#eef4fc;color:#263549;border-color:#cedcee}
+.business-page :is(.provider-mode-options label,.mode-choice a,.duration-chip,.order-mini-tags span,.tag-suggestions button){background:#f7faff;border-color:#cedcee;color:#263549}
+.business-page :is(.tag-suggestions button[aria-pressed=true],.mode-choice a[aria-current=true]){background:#e0ecff;border-color:#85aae0;color:#1d4f9e}
+.business-page .order-summary{background:#eef4fc;border-color:#cedcee}
+.business-page .summary-item{border-color:#cedcee}
+.business-page .summary-item strong,.business-page .order-amount strong{color:#172033}
+.business-page :is(.summary-item small,.summary-item em,.order-filters button,.order-filters span){color:#46566c}
+.business-page .summary-item.attention strong{color:#875513}
+.business-page .order-filters button[aria-pressed=true]{color:#2458b8;border-color:#2f6bd9}
+.business-page .order-card.is-selected{background:#f6f9ff;border-color:#87ace1;box-shadow:inset 3px 0 #2f6bd9}
+.business-page .order-card-bottom{background:#f6f9ff}
+.business-page .order-thumbnail{filter:none;border-color:#cedcee}
+.business-page .status-badge{color:#46566c}
+.business-page .status-active{color:#176b56}
+.business-page :is(.status-ready,.status-matching){color:#2458b8}
+.business-page :is(.status-confirming,.status-finishing){color:#875513}
+.business-page .status-aftercare{color:#9a3d2c}
+.business-page :is(.order-card-note b,.demo-note button){color:#263549}
+.business-page .demo-note>span{background:#e0ecff;color:#2458b8;border-color:#cedcee}
+.business-page .order-demand{border-color:#cedcee}
+.business-page :is(.order-form label,.confirmation-list dd,.confirmation-list dt,.provider-controls select){color:#263549}
+.business-page .confirmation-total{color:#2458b8!important}
+.business-page :is(.order-form input,.order-form select,.order-form textarea,#provider-profile fieldset){background:#fff;border-color:#afc3df;color:#263549}
+.business-page .order-form legend{font-weight:600}
+.business-page .detail-facts dd{color:#263549}
+.business-page .detail-tags span{color:#fff}
+.business-page :is(.detail-visual h1,.detail-visual p,.compact-service h3,.compact-service small,.compact-service p,.compact-price,.compact-price span,.compact-service .text-link){color:#fff}
+.business-page .compact-service>img{filter:none}
+.business-page :is(.order-dialog,.order-dialog-body){background:#fff;color:#263549}
+.business-page .order-dialog-header{background:#eef4fc;border-color:#cedcee;color:#172033}
+.business-page :is(.aftercare-option,.aftercare-progress){background:#f6f9ff;border-color:#cedcee;color:#263549}
+.business-page .aftercare-steps li{background:#e0ecff;color:#2458b8}
+.business-page :is(.evidence-note,.evidence-file small){opacity:1;color:#46566c}
+.business-page .order-empty{background:#f6f9ff;color:#263549;border-color:#cedcee}
+.business-page .order-empty p{color:#46566c}
+.business-page footer{border-color:#cedcee;color:#46566c}
+.business-page :is(.footer-intro strong,.footer-links a,.source-button){color:#263549}
+.business-page :is(.footer-intro span,.footer-note){color:#46566c}
+
+/* Standalone agreements retain user-selected reading sizes. */
+.rules-page .rules-header{background:#fff;border-color:#cedcee;color:#172033}
+.rules-page :is(.rules-header>a,.rules-nav a,.reading-control){color:#263549}
+.rules-page .rules-layout{max-width:1240px;padding-top:32px;padding-bottom:32px}
+.rules-page .rules-page-heading h1{font-size:30px;letter-spacing:0;color:#172033}
+.rules-page .rules-page-heading p{color:#46566c}
+.rules-page .rules-nav a:hover{background:#eef4fc;border-color:#2f6bd9}
+.rules-page .rules-nav .eyebrow{display:none}
+.rules-page .legal-document{background:#fff;box-shadow:none;border-color:#cedcee;color:#263549}
+.rules-page .draft-badge{background:#fff7e8;border-color:#e4d1a5;color:#77551e}
+.rules-page .rules-toolbar .reading-control,.rules-page .rules-toolbar .reading-control select{background:#fff;color:#263549;border-color:#afc3df;color-scheme:light}
+@media(max-width:620px){
+  .business-page :is(.workspace-top h1,.order-page-top h1),.rules-page .rules-page-heading h1{font-size:26px}
+  .business-page .order-card-top{gap:8px;flex-wrap:wrap}
+  .business-page .workspace-top{align-items:flex-start;flex-wrap:wrap}
+  .business-page .workspace-preview{font-size:12px}
+  .business-page .booking-card{display:block}
+  .business-page .booking-top{margin-bottom:12px}
+  .business-page .booking-options{margin-top:24px}
+  .business-page .booking-subtitle{max-width:none}
+}
+
+/* Corrections found during real mobile and dialog checks. */
+.business-page .empty-service{grid-template-columns:minmax(0,1fr) auto}
+.business-page .empty-service>.workspace-button{grid-column:2}
+.business-page .detail-facts{background:#eef4fc;border-color:#cedcee}
+.business-page :is(.assurance-panel h2,.assurance-panel p strong){color:#172033}
+.business-page :is(.assurance-panel p span,.service-breadcrumb,.workspace-empty p){color:#46566c}
+.business-page .assurance-panel>a{color:#2458b8}
+.business-page .workspace-panel>h2{font-size:20px;line-height:1.5;margin:0 0 14px}
+.business-page :is(.detail-included p,.detail-rules p,.simple-list p,.empty-service p,.message-empty){font-size:14px;line-height:1.85}
+:is(.team-page,.paid-page,.business-page) .help-question summary{color:#263549;font-weight:600}
+:is(.team-page,.paid-page,.business-page) .help-question{border-color:#cedcee}
+:is(.team-page,.paid-page) .heading-main h1{font-weight:650}
+@media(max-width:620px){.business-page .empty-service{grid-template-columns:1fr}.business-page .empty-service>.workspace-button{grid-column:1;justify-self:start}.business-page .detail-facts{padding:16px 4px}.business-page .detail-facts>div{padding:0 9px}}
+
+.business-page :is(.quick-label,.provider-row small,.provider-row .provider-meta,.service-timer>small,.timer-caption,.quick-info,.detail-data dt,.booking-top,.booking-price small,.booking-subtitle,.booking-card h2,.duration-chip small,.order-form-intro,.form-rule-hint,.order-dialog-header p){color:#46566c}
+.business-page .quick-details{color:#2458b8}

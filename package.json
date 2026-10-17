@@ -1,0 +1,21 @@
+{
+  "name": "delta-companion-platform",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs start",
+    "start": "node scripts/dev.mjs start",
+    "dev:check": "node scripts/dev.mjs check",
+    "check": "node scripts/check-source.mjs",
+    "seed:local": "node scripts/dev.mjs seed",
+    "test": "node scripts/dev.mjs test",
+    "test:auth": "node --test tests/auth-integration.test.mjs"
+  },
+  "dependencies": {
+    "better-auth": "1.7.6"
+  },
+  "type": "module"
+}

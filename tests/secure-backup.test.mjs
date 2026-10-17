@@ -1,0 +1,86 @@
+import {createFeedback} from '../server/feedback.mjs';
+import { createTeams } from '../server/teams.mjs';
+import { createTeamProfiles } from '../server/team-profiles.mjs';
+import { createSecurity } from '../server/security.mjs';
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { mkdtempSync, realpathSync, rmSync, writeFileSync, readFileSync, existsSync, readdirSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { randomBytes } from 'node:crypto';
+import path from 'node:path';
+import { createAuth } from '../server/auth.mjs';
+import { createMarket } from '../server/market.mjs';
+import { createPersonas } from '../server/personas.mjs';
+import { createLocalProviders } from '../server/providers/local.mjs';
+import { createEncryptedSnapshot, verifyEncryptedSnapshot, restoreEncryptedSnapshot, readBackupKey, generateBackupKey } from '../scripts/secure-backup.mjs';
+import { backupBeforeUpgrade } from '../server/upgrade-backup.mjs';
+import { createEvidence } from '../server/evidence.mjs';
+
+test('加密备份、原密钥恢复会话，错误密钥/损坏密文不得创建恢复目录', async t => {
+  const parent = realpathSync(tmpdir()), root = mkdtempSync(path.join(parent, 'delta-secure-'));
+  const source = path.join(root, 'source'), backup = path.join(root, 'backup'), target = path.join(root, 'restore'), key = randomBytes(32);
+  const oldSecret = process.env.BETTER_AUTH_SECRET; delete process.env.BETTER_AUTH_SECRET;
+  t.after(() => { if (oldSecret === undefined) delete process.env.BETTER_AUTH_SECRET; else process.env.BETTER_AUTH_SECRET = oldSecret; const resolved = realpathSync(root); assert.equal(path.dirname(resolved),parent); assert.ok(path.basename(resolved).startsWith('delta-secure-')); rmSync(resolved,{recursive:true}); });
+  let { auth, database } = await createAuth({ baseURL:'http://127.0.0.1:4174', dataDirectory:source });
+  const result = await auth.api.signUpEmail({body:{name:'恢复测试',email:'backup@example.test',password:'Backup-safe-local-2026!',termsAccepted:true},returnHeaders:true});
+  const cookie = result.headers.getSetCookie().map(v=>v.split(';')[0]).join('; '), user = result.response.user;
+  const providers = createLocalProviders({directory:source}); createMarket(database,providers); createEvidence(database,createMarket(database,providers),providers.storage);
+  writeFileSync(path.join(source,'storage','evidence-local'),Buffer.from('local evidence bytes'));
+  database.close(); providers.close();
+  const keyfile=path.join(root,'key'); generateBackupKey(keyfile); assert.equal(readBackupKey(keyfile).length,32); assert.throws(()=>generateBackupKey(keyfile));
+  await createEncryptedSnapshot(source,backup,key);
+  assert.ok(!existsSync(path.join(backup,'auth-secret'))); assert.ok(!existsSync(path.join(backup,'auth.sqlite')));
+  assert.ok((await verifyEncryptedSnapshot(backup,key)).files.length >= 5);
+  await assert.rejects(restoreEncryptedSnapshot(backup,path.join(root,'bad-key'),randomBytes(32)),/密钥错误/); assert.equal(existsSync(path.join(root,'bad-key')),false);
+  await restoreEncryptedSnapshot(backup,target,key);
+  ({auth,database}=await createAuth({baseURL:'http://127.0.0.1:4174',dataDirectory:target}));
+  assert.equal((await auth.api.getSession({headers:new Headers({cookie})})).user.id,user.id); database.close();
+  assert.equal(readFileSync(path.join(target,'storage','evidence-local'),'utf8'),'local evidence bytes');
+  await assert.rejects(restoreEncryptedSnapshot(backup,target,key),/新目录/);
+  const blob=path.join(backup,'0.enc'), bytes=readFileSync(blob); bytes[0]^=1; writeFileSync(blob,bytes);
+  await assert.rejects(restoreEncryptedSnapshot(backup,path.join(root,'corrupt'),key),/解密/); assert.equal(existsSync(path.join(root,'corrupt')),false);
+  assert.equal(readdirSync(root).filter(n=>n.startsWith('.delta-backup-work-')).length,0);
+});
+test('环境密钥以引用恢复，不进入备份；错误环境密钥不能启动原身份库', async t => {
+  const parent=realpathSync(tmpdir()), root=mkdtempSync(path.join(parent,'delta-keyref-'));
+  const oldSecret=process.env.BETTER_AUTH_SECRET, secret=randomBytes(48).toString('base64url'), authKeyRef='staging/auth/2026-10';
+  process.env.BETTER_AUTH_SECRET=secret;
+  t.after(()=>{if(oldSecret===undefined)delete process.env.BETTER_AUTH_SECRET;else process.env.BETTER_AUTH_SECRET=oldSecret;const resolved=realpathSync(root);assert.equal(path.dirname(resolved),parent);assert.ok(path.basename(resolved).startsWith('delta-keyref-'));rmSync(resolved,{recursive:true});});
+  const source=path.join(root,'source'), backup=path.join(root,'backup'), target=path.join(root,'restored'), key=randomBytes(32);
+  const {auth,database}=await createAuth({baseURL:'https://staging.example.test',dataDirectory:source,environment:'staging'});
+  const result=await auth.api.signUpEmail({body:{name:'内测恢复',email:'staging@example.test',password:'Staging-backup-test-2026!',termsAccepted:true},returnHeaders:true});
+  assert.equal(result.headers.getSetCookie().length,0);
+  // This test isolates encrypted snapshot restoration; synthetic ownership fixture.
+  database.prepare('UPDATE user SET emailVerified=1 WHERE id=?').run(result.response.user.id);
+  const login=await auth.api.signInEmail({body:{email:'staging@example.test',password:'Staging-backup-test-2026!'},returnHeaders:true});
+  const cookie=login.headers.getSetCookie().map(v=>v.split(';')[0]).join('; ');
+  const providers=createLocalProviders({directory:source});createMarket(database,providers);database.close();providers.close();
+  writeFileSync(path.join(source,'environment.json'),JSON.stringify({version:1,environment:'staging'}));
+  await createEncryptedSnapshot(source,backup,key,{authSecret:secret,authKeyRef});
+  await assert.rejects(restoreEncryptedSnapshot(backup,path.join(root,'wrong-ref'),key,{authSecret:secret,authKeyRef:'wrong'}),/引用/);
+  await assert.rejects(restoreEncryptedSnapshot(backup,path.join(root,'wrong-secret'),key,{authSecret:randomBytes(48).toString('hex'),authKeyRef}),/原环境/);
+  await restoreEncryptedSnapshot(backup,target,key,{authSecret:secret,authKeyRef});
+  assert.equal(existsSync(path.join(target,'auth-secret')),false);
+  const restored=await createAuth({baseURL:'https://staging.example.test',dataDirectory:target,environment:'staging'});
+  assert.equal((await restored.auth.api.getSession({headers:new Headers({cookie})})).user.id,result.response.user.id);restored.database.close();
+  process.env.BETTER_AUTH_SECRET=randomBytes(48).toString('hex');
+  await assert.rejects(createAuth({baseURL:'https://staging.example.test',dataDirectory:target,environment:'staging'}),/不一致/);
+  delete process.env.BETTER_AUTH_SECRET;
+  await assert.rejects(createAuth({baseURL:'http://127.0.0.1:4174',dataDirectory:target}),/缺少认证密钥/);
+  assert.equal(existsSync(path.join(target,'auth-secret')),false);
+});
+test('现有账户库升级先备份；应用迁移完成后不重复备份', async t => {
+  const parent=realpathSync(tmpdir()), root=mkdtempSync(path.join(parent,'delta-upgrade-'));
+  t.after(()=>{const target=realpathSync(root);assert.equal(path.dirname(target),parent);assert.ok(path.basename(target).startsWith('delta-upgrade-'));rmSync(target,{recursive:true});});
+  const {database,auth}=await createAuth({baseURL:'http://127.0.0.1:4174',dataDirectory:root});
+  const providers=createLocalProviders({directory:root});
+  const config={dataDirectory:root,environment:'test'};
+  const backup=await backupBeforeUpgrade(config);assert.ok(backup);
+  const market=createMarket(database,providers);createEvidence(database,market,providers.storage);createTeams(database);createSecurity(database,auth);createPersonas(database);createFeedback(database,{assertAdmin:createSecurity(database,auth).assertAdmin});
+  createTeamProfiles(database);
+  assert.equal(await backupBeforeUpgrade(config),null);
+  assert.deepEqual(database.prepare('SELECT id FROM app_migrations ORDER BY id').all().map(r=>r.id),['001-market-baseline','002-evidence-baseline','003-reliable-jobs','004-free-teams','005-account-security','006-payment-journal','007-runtime-limits','008-team-history','009-persona-presentation','010-paid-squads','011-persona-space','012-simulated-ledger','013-site-feedback','014-privacy-requests','015-free-team-profiles']);
+  providers.close();database.close();
+});
+
+

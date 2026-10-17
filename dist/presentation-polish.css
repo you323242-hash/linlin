@@ -1,0 +1,54 @@
+/* Original native presentation, inspired by the references in docs/OPEN_SOURCE_REFERENCES.md. */
+:root{--polish-ink:#182f4c;--polish-blue:#315fa5;--polish-border:#dbe5f1;--polish-ease:cubic-bezier(.22,.68,.2,1)}
+:is(.team-page,.paid-page) h1{color:var(--polish-ink);letter-spacing:-.015em;position:relative;width:fit-content}
+:is(.team-page,.paid-page) h1:after{content:"";display:block;margin-top:12px;width:42px;height:3px;border-radius:8px;background:linear-gradient(90deg,#315fa5,#8aacde);transform-origin:left}
+:is(.team-page,.paid-page) :is(.people-section-head h2,.section-title-row h2,.team-section-head h2){color:var(--polish-ink);font-weight:700;line-height:1.5}
+.person-card{position:relative;border-radius:18px;padding:24px;box-shadow:0 3px 10px #203b5f04,0 12px 36px #203b5f06}
+.person-card:before{content:"";position:absolute;top:0;left:24px;right:24px;height:2px;border-radius:0 0 6px 6px;background:linear-gradient(90deg,#9bbbe7,#dce8f8,transparent);pointer-events:none}
+.person-card .person-avatar{box-shadow:inset 0 0 0 1px #ffffffcc,0 4px 12px #264a7910}
+.person-card-mark{display:grid;place-items:center;width:30px;height:30px;border:1px solid #dfe8f4;border-radius:50%;background:#fff;flex-shrink:0}
+.person-card-tags>span,.person-preferences>span{border-radius:20px;padding:5px 10px}
+.person-sheet-cover{height:94px;background:radial-gradient(ellipse at 16% 30%,#ffffffb0,transparent 48%),radial-gradient(ellipse at 95% 0%,#c8dbf8,transparent 60%),linear-gradient(130deg,#e5effd,#f6f9ff)}
+.person-sheet-content{padding-bottom:26px}.person-sheet .person-intro{max-width:48ch}.person-sheet-heading h3{font-weight:700!important}.person-sheet+button{margin-top:16px}
+:is(.team-page,.paid-page) .main-nav a{transition:color .2s var(--polish-ease),background .2s var(--polish-ease)}
+:is(.team-page,.paid-page) :is(.select-button,.team-button,.join-button){transition:background .22s,box-shadow .22s,transform .22s var(--polish-ease)}
+.paid-page .select-button:hover,.team-page .team-button:hover{box-shadow:0 6px 16px #315fa51d}
+.paid-page .price-card{border-radius:18px;border-color:#d7e3f0}.paid-page .scene-banner{border-radius:14px;overflow:hidden}
+.team-page .team-card{box-shadow:0 2px 9px #203b5f04,0 10px 30px #203b5f05}
+.team-page .team-filters{background:linear-gradient(120deg,#f5f8fd,#fbfdff);box-shadow:inset 0 1px 0 #fff}
+:is(.team-page,.paid-page) :is(.team-footer,.site-footer){border-top-color:#dce5ef}
+.order-next-step{display:grid;grid-template-columns:36px minmax(0,1fr) auto;align-items:center;gap:14px 16px;padding:20px 22px;border:1px solid #cbdcf1;border-radius:14px;background:linear-gradient(115deg,#f0f6ff,#f9fbff);margin:0 0 24px;min-width:0}
+.next-step-symbol{display:grid;place-items:center;width:36px;height:36px;border:1px solid #d7e4f5;border-radius:12px;color:#315fa5;background:#fff}.next-step-symbol svg{width:20px;height:20px}
+.order-next-step small{display:block;color:#486384;font-size:12px;line-height:1.6;margin-bottom:4px}.order-next-step h3{margin:0;font-size:18px;line-height:1.55;font-weight:700;color:#183858;letter-spacing:0}.order-next-step p{margin:6px 0 0;font-size:14px;line-height:1.8;color:#465d79;overflow-wrap:anywhere}
+.order-next-step .order-button{min-height:44px;white-space:normal;text-align:center;max-width:180px;border-radius:9px;font-size:14px;font-weight:600}
+.quick-content .order-next-step{grid-template-columns:32px minmax(0,1fr);gap:12px;padding:16px;margin-bottom:18px}.quick-content .order-next-step>.order-button{grid-column:1/-1;width:100%;max-width:none}.quick-content .order-next-step h3{font-size:17px}.quick-content .order-next-step p{font-size:13px}
+.secondary-actions{gap:8px!important}.secondary-actions .order-button{font-size:13px!important;min-height:40px!important}.detail-actions.secondary-actions .order-button{flex:initial!important}
+.round-check-intro{border:1px solid #d5e3f4;background:#f5f9ff;border-radius:10px;padding:15px 17px;color:#244970}.round-check-intro strong{font-size:16px;line-height:1.5}.round-check-intro p{margin:6px 0 0;font-size:14px;line-height:1.8;color:#48617f}
+.order-form .form-actions{flex-wrap:wrap;align-items:center}.order-form .form-actions .order-button[type=button]{background:#fff;color:#456181;border-color:#c9d8e9}.order-dialog-header{background:linear-gradient(110deg,#f0f6ff,#f9fbff)!important;color:#183858!important;border-bottom-color:#dce6f3!important}.order-dialog-header .page-kicker{color:#486384!important}.order-dialog-header .close-button{background:#fff!important;color:#31516f!important;border-color:#d1dfef!important}.order-dialog-body{background:#fff}
+@media(max-width:700px){.order-next-step{grid-template-columns:32px minmax(0,1fr);padding:16px;gap:12px}.order-next-step>.order-button{grid-column:1/-1;width:100%;max-width:none}.order-next-step h3{font-size:17px}.order-next-step p{font-size:14px}.person-card{padding:20px}.person-card:before{left:20px;right:20px}.order-form .form-actions{display:grid;grid-template-columns:1fr}.order-form .form-actions .order-button{width:100%;min-height:46px}.order-form .form-actions .order-button[type=submit]{grid-row:1}}
+@media(prefers-reduced-motion:no-preference){
+ :is(.team-page,.paid-page) h1:after{animation:heading-line .65s .12s var(--polish-ease) both}
+ :is(.team-page,.paid-page) .person-sheet{animation:sheet-enter .24s var(--polish-ease) both}
+ .order-action-dialog[open],.order-detail-dialog[open],.action-dialog[open]{animation:sheet-enter .2s var(--polish-ease) both}
+ .team-page .team-hero{animation:hero-enter .55s var(--polish-ease) both}
+}
+@keyframes heading-line{from{transform:scaleX(.25)}to{transform:scaleX(1)}}
+@keyframes sheet-enter{from{opacity:.85;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@keyframes hero-enter{from{opacity:.8;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){.person-card:hover .person-card-mark{background:#eef5ff;border-color:#b8d0f0}.paid-page .select-button:active,.team-page .team-button:active{transform:translateY(1px)}}
+@media(prefers-reduced-motion:reduce){:is(.team-page,.paid-page) h1:after,:is(.team-page,.paid-page) .person-sheet,.team-page .team-hero,.order-action-dialog,.order-detail-dialog,.action-dialog{animation:none!important;transform:none!important}:is(.team-page,.paid-page) :is(.select-button,.team-button,.join-button,.main-nav a){transition:none!important}}
+
+/* Native keyboard and state feedback; layout and content stay unchanged. */
+:is(button,a,summary,[tabindex]):focus-visible{outline:2px solid #386dc1;outline-offset:3px}
+.person-card:focus-visible{border-color:#7da6df;box-shadow:0 8px 24px #315fa514}
+.person-mini:focus-visible .person-mini-link,.person-card:focus-visible .person-card-foot>span:last-child{color:#204f94}
+:is(.view-toggle,.team-workspace-tabs,.order-filters) button[aria-pressed=true]{font-weight:700}
+dialog .close-button{transition:background .16s,border-color .16s}
+dialog .close-button:hover{background:#edf4ff!important;border-color:#aac4e8!important}
+@media(prefers-reduced-motion:no-preference){
+ :is(.view-toggle,.team-workspace-tabs,.order-filters) button[aria-pressed=true]{animation:selection-settle .18s ease-out}
+ dialog[open]::backdrop{animation:backdrop-settle .16s ease-out}
+}
+@keyframes selection-settle{from{opacity:.65}to{opacity:1}}
+@keyframes backdrop-settle{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){dialog::backdrop{animation:none!important}:is(.view-toggle,.team-workspace-tabs,.order-filters) button,dialog .close-button{animation:none!important;transition:none!important}}

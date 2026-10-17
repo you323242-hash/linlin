@@ -1,0 +1,19 @@
+[Unit]
+Description=Delta encrypted backup and isolated recovery drill
+After=delta-staging.service
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+WorkingDirectory=/opt/delta-staging/current
+EnvironmentFile=/etc/delta/staging.env
+ExecStart=/usr/bin/bash /opt/delta-staging/current/deploy/backup-cycle.sh
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+TimeoutStartSec=15min
+TimeoutStopSec=300
+# A timeout/signal must not strand the application in the stopped state.
+ExecStopPost=/usr/bin/bash /opt/delta-staging/current/deploy/backup-resume.sh
+ExecStopPost=/usr/bin/bash /opt/delta-staging/current/deploy/backup-failure.sh

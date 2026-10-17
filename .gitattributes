@@ -1,0 +1,2 @@
+# Windows command files must retain CRLF; LF can break cmd parsing of UTF-8 text.
+*.cmd text eol=crlf

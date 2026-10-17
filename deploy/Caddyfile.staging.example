@@ -1,0 +1,31 @@
+# TEMPLATE ONLY. Validate with the installed Caddy version before any deployment.
+# A single direct edge proxy, on the same host as Node; NOT for CDN/multi-hop setups.
+# Supply BETTER_AUTH_URL and STAGING_ACCESS_TOKEN through Caddy's private
+# process environment. Account login is the only user-facing login layer.
+# The deployed IP/private-CA TLS configuration must be preserved separately.
+{
+    admin off
+}
+
+{$BETTER_AUTH_URL} {
+    route {
+        header X-Robots-Tag "noindex, nofollow, noarchive"
+        reverse_proxy 127.0.0.1:4174 {
+            header_up -Authorization
+            header_up -Forwarded
+            header_up -X-Real-IP
+            header_up -X-Delta-Client-IP
+            header_up Host {http.request.hostport}
+            header_up X-Forwarded-Host {http.request.hostport}
+            header_up X-Forwarded-Proto https
+            header_up X-Forwarded-For {http.request.remote.host}
+            header_up X-Delta-Staging-Access {$STAGING_ACCESS_TOKEN}
+            # Retain the deployed application-status header contract.
+            @application_login_required status 401
+            handle_response @application_login_required {
+                header X-Delta-Application-Status 401
+                copy_response 403
+            }
+        }
+    }
+}

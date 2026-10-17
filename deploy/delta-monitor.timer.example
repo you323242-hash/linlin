@@ -1,0 +1,11 @@
+[Unit]
+Description=Delta staging check every five minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5min
+AccuracySec=15s
+Unit=delta-monitor.service
+
+[Install]
+WantedBy=timers.target

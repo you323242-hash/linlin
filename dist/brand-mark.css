@@ -1,0 +1,4 @@
+/* Branding removed for presentation; retain functional navigation icons. */
+.brand{padding-left:0}
+.brand::before,.brand-return::before{content:none}
+.brand-return{display:inline-flex;align-items:center;gap:8px}

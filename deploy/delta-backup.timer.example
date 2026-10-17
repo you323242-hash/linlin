@@ -1,0 +1,11 @@
+[Unit]
+Description=Delta daily encrypted backup
+
+[Timer]
+OnCalendar=*-*-* 04:00:00 Asia/Shanghai
+RandomizedDelaySec=5min
+Persistent=false
+Unit=delta-backup.service
+
+[Install]
+WantedBy=timers.target

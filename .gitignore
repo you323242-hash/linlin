@@ -1,0 +1,32 @@
+# Local data and credentials
+node_modules/
+.local/
+.data/
+.env*
+*.sqlite*
+*.db
+*-wal
+*-shm
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.log
+coverage/
+backups/
+logs/
+storage/
+uploads/
+# Internal records and retired scaffolding
+AGENTS.md
+PROJECT_BRAIN.md
+archive/
+.openai/
+.codex/
+.agents/
+.sites-runtime/
+docs/release-checks/
+outputs/
+work/
+.DS_Store

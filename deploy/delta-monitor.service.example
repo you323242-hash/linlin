@@ -1,0 +1,22 @@
+[Unit]
+Description=Delta read-only staging monitor
+After=delta-staging.service
+
+[Service]
+Type=oneshot
+User=delta-staging
+Group=delta-staging
+WorkingDirectory=/opt/delta-staging/current
+EnvironmentFile=/etc/delta/staging.env
+Environment=MONITOR_STATE_FILE=/var/lib/delta-monitor/state.json
+Environment=NODE_EXTRA_CA_CERTS=/var/lib/delta-monitor/inner-test-root.crt
+Environment=MONITOR_BACKUP_STATUS_FILE=/var/lib/delta-monitor/backup-status.json
+ExecStart=/usr/bin/node scripts/monitor.mjs
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadOnlyPaths=/var/lib/delta-staging
+ReadWritePaths=/var/lib/delta-monitor
+TimeoutStartSec=40

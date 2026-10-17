@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="管理三角洲端游陪玩订单、服务进度与售后申请。">
+  <title>我的订单</title>
+  
+  <link rel="stylesheet" href="./style.css?v=8">
+  <script type="module" src="./main.js?v=14"></script>
+  <script src="./reading-size.js?v=7" defer></script>
+  <link rel="stylesheet" href="./orders.css?v=1">
+  <script type="module" src="./orders.mjs?v=8"></script>
+<link rel="stylesheet" href="./user-pages.css?v=2"><link rel="stylesheet" href="./platform-theme.css?v=8"><link rel="stylesheet" href="./interaction-polish.css?v=3"><link rel="stylesheet" href="./presentation-polish.css?v=2"><link rel="stylesheet" href="./persona-studio.css?v=7"><link rel="icon" href="data:,"><link rel="stylesheet" href="./brand-mark.css?v=1"></head>
+<body class="orders-page business-page">
+  <svg class="icon-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-headset" viewBox="0 0 24 24"><path d="M4 14v-3a8 8 0 0 1 16 0v3M4 12h3v8H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2Zm16 0h-3v8h3a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2Z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></symbol>
+    <symbol id="i-order" viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Zm3 5h6m-6 4h6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 3 8 3v6c0 4-5 8-8 9-3-1-8-5-8-9V6l8-3Z"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-screen" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M12 16v4m-5 0h10"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 8.5a2.5 2.5 0 1 1 4 2c-1.5 1-1.5 1.5-1.5 3M12 17h.01"/></symbol>
+  </defs></svg>
+  <aside class="rail" aria-label="快捷入口">
+    
+    <nav class="rail-nav"><a href="./index.html#services" class="rail-button" aria-label="陪玩服务"><svg><use href="#i-headset"/></svg></a><a href="./orders.html" class="rail-button active" aria-label="我的订单" aria-current="page"><svg><use href="#i-order"/></svg></a><a href="./rules.html" class="rail-button" aria-label="服务须知"><svg><use href="#i-shield"/></svg></a></nav>
+    <div class="rail-bottom"><button class="rail-button" data-panel="help" aria-label="帮助"><svg><use href="#i-help"/></svg></button><span class="vertical-label">PC / CN</span></div>
+  </aside>
+  <div class="site-wrap">
+    <header class="header workspace-header">
+      <a class="brand" href="./index.html">游戏组队</a>
+      <nav class="main-nav" aria-label="主导航"><a href="./teams.html">免费组队</a><a href="./index.html#services" >付费陪玩</a><a href="./orders.html" class="nav-active" aria-current="page">我的订单</a><a href="./account.html">用户中心</a></nav>
+      <div class="header-actions"><button class="account-button" data-panel="account" aria-label="登录或注册"><svg><use href="#i-user"/></svg><span>登录 / 注册</span></button></div>
+    </header>    <main class="order-main"><details class="dispatch-guide"><summary>订单与服务操作说明 <span>首次使用建议阅读</span></summary><ol><li><strong>下单 / 接单</strong><p>消费者选择模式和陪玩人数后模拟支付；服务者开启接单。双人单由已组队的两位陪玩承接完整订单。</p></li><li><strong>入队确认</strong><p>通过订单沟通完成游戏内组队。消费者和每位陪玩分别确认入队，全体确认后才开始计时。</p></li><li><strong>记录对局</strong><p>任一参与者可登记对局开始和结果，其他参与者分别核对。首局未撤离且全体核对后，消费者可按规则免费换人一次。</p></li><li><strong>完成 / 售后</strong><p>时长满后完成当前对局，全体参与者确认结束。记录有异议时先核对，再进入“售后 / 自助处理”提交说明和截图；方案须分别回应。</p></li></ol><p>两种身份共用一个账户，切换视角只显示对应订单。本机付款、退款均为模拟，不涉及真实资金。</p></details>
+      <div class="order-page-top"><div><p class="page-kicker">个人中心 / 订单管理</p><h1>我的订单</h1></div><a class="order-button primary" href="./index.html#services">选购服务</a></div>
+      <div class="order-toolbar">
+        <div class="view-toggle" role="group" aria-label="订单视角"><button type="button" data-role="buyer" aria-pressed="true">我下的单</button><button type="button" data-role="provider" aria-pressed="false">我接的单</button></div>
+        <div class="demo-note"><span>本机测试</span><small>订单真实保存；支付为模拟，不扣款</small><button type="button" data-order-action="reset">刷新订单</button></div>
+      </div>
+      <div id="order-summary" class="order-summary" aria-label="订单概览"></div>
+      <div class="order-workspace">
+        <section class="order-records" aria-labelledby="record-title">
+          <div class="record-heading"><h2 id="record-title">订单记录</h2><span id="record-count"></span></div>
+          <div id="order-filters" class="order-filters" role="group" aria-label="按订单状态筛选"></div>
+          <div id="order-list" class="order-list"></div>
+        </section>
+        <aside class="order-sidebar" aria-label="当前订单与服务保障">
+          <div id="quick-panel"></div>
+          <section class="assurance-panel"><h2><svg aria-hidden="true"><use href="#i-shield"/></svg>服务保障</h2><p><strong>首局换人</strong><span>首局正常对局未撤离，可免费换人一次。</span></p><p><strong>费用透明</strong><span>全体确认起算，合理的尾局延续不加收费用。</span></p><p><strong>售后可复核</strong><span>提交说明与材料摘要，人工核实；全体确认或申请复核。</span></p><a href="./rules.html#order-notice" data-document="order-notice">查看完整点单须知</a></section>
+        </aside>
+      </div>
+      <noscript><p class="order-empty">请启用 JavaScript 查看订单交互预览。你仍可阅读<a href="./rules.html">服务须知</a>。</p></noscript>
+    </main>    <footer class="site-footer"><div class="footer-intro"><span>本机测试 · 模拟支付</span></div><nav class="footer-links" aria-label="平台规则与协议"><a href="./rules.html#order-notice" data-document="order-notice">点单须知</a><a href="./rules.html#provider-notice" data-document="provider-notice">接单须知</a><a href="./rules.html#user-agreement" data-document="user-agreement">用户服务协议</a><a href="./rules.html#disclaimer" data-document="disclaimer">免责声明</a><a href="./rules.html#aftercare-draft" data-document="aftercare-draft">售后草案</a><button class="source-button" data-panel="sources">插图来源</button></nav><p class="footer-note">协议为待确认草案；运营主体、客服及隐私联系信息将在正式开放服务前公示。</p></footer>
+  </div>
+  <dialog id="preview-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><span class="eyebrow">PREVIEW</span><button id="close-dialog" class="close-button" aria-label="关闭"><svg><use href="#i-close"/></svg></button></div><h2 id="dialog-title"></h2><div id="dialog-content"></div><button id="dismiss-dialog" class="dialog-confirm">返回页面</button></dialog>
+  <dialog id="document-dialog" class="document-dialog" aria-labelledby="document-title">
+    <div class="document-header"><div><span class="eyebrow">RULES & AGREEMENTS</span><h2 id="document-title">规则与协议</h2></div><button class="close-button" data-close-document aria-label="关闭协议"><svg><use href="#i-close"/></svg></button></div>
+    <div id="document-content" class="document-body" aria-live="polite"></div>
+    <div class="document-footer"><a id="document-full-link" href="./rules.html" target="_blank" rel="noopener" aria-label="在新页面查看全文">查看全文</a><label class="reading-control">字号<select id="reading-size" aria-label="正文字号"><option value="16">标准</option><option value="18">较大</option><option value="20">大字</option></select></label><button class="document-dismiss" data-close-document>返回</button></div>
+  </dialog>
+  <dialog id="order-detail" class="order-dialog detail-dialog" aria-labelledby="order-detail-title"><header class="order-dialog-header"><div><p class="page-kicker">订单详情</p><h2 id="order-detail-title">服务详情</h2></div><button type="button" class="close-button" data-close-order="order-detail" aria-label="关闭订单详情"><svg><use href="#i-close"/></svg></button></header><div id="order-detail-body" class="order-dialog-body"></div></dialog>
+  <dialog id="order-action" class="order-dialog action-dialog" aria-labelledby="order-action-title"><header class="order-dialog-header"><h2 id="order-action-title"></h2><button type="button" class="close-button" data-close-order="order-action" aria-label="关闭操作窗口"><svg><use href="#i-close"/></svg></button></header><div id="order-action-body" class="order-dialog-body"></div></dialog>
+  <div id="order-toast" class="order-toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
+
+
