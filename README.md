@@ -68,6 +68,8 @@ npm run dev:check   # 本地依赖/数据/服务状态
 
 ## 如何评审本项目
 
+[附录：项目参与、订单流程与实际决策](docs/INTERVIEW_PROJECT_APPENDIX.md)结合项目记录说明本人承担的工作、订单主流程、四项实际取舍和一次纠正AI排查方向的具体经过，并标明验证与贡献边界。
+
 先看[迭代记录](docs/ITERATION_HISTORY.md)，再按[架构阅读地图](docs/ARCHITECTURE.md)定位代码；具体可复现步骤和证据限制见[验证记录](docs/VERIFICATION.md)。早期迭代来自当时保留的阶段报告，不冒充Git提交历史；公开基线后的改动使用真实提交记录。
 
 当前主体是JavaScript ES Modules。已有Provider接口声明，但**尚未实现项目级TypeScript静态检查**；类型声明不等于实现已被检查。优先保留Node直接运行和成熟流程，后续按实际维护需要在配置、接口和适配器边界渐进补类型，不进行仅为展示的全量迁移。
